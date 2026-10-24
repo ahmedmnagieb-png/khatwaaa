@@ -76,7 +76,82 @@ export default function Page() {
 
       <section id="why" className="mx-auto grid max-w-7xl gap-14 px-5 py-24 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-10"><div><p className="mb-3 text-sm font-bold text-[#42B0D8]">المميزات بتاعت خطوة</p><h2 className="text-4xl font-bold leading-tight md:text-5xl">أكاديمية خطوة.. بوابتك المباشرة<br /><span className="text-[#42B0D8]">لسوق العمل السياحي!</span></h2><p className="mt-5 leading-8 text-[#1B2B65]">لسنا مجرد قاعات تدريبية.. نحن ننقلك مباشرةً إلى قلب السوق!</p><p className="mt-4 font-bold text-[#1B2B65]">مع خطوة.. الخبرة بتبدأ قبل التخرج!</p><a href="#contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1B2B65] px-6 py-3.5 font-bold text-white transition hover:bg-[#263a83]">احجز مقعدك الآن <ArrowLeft className="size-4" /></a></div><div className="grid gap-4 sm:grid-cols-2">{[{icon: Plane, title: 'تطبيق عملي 100%', text: 'تدريب مباشر على عملاء حقيقيين وحجوزات فعلية.', image: '/benefit-practical.png'},{icon: MapPin, title: 'معايشة ميدانية', text: 'تدريب عملي داخل شركة سياحة فور الانتهاء من الدبلومة.', image: '/benefit-field.png'},{icon: Users, title: 'دعم التوظيف', text: 'توفير فرص عمل وتعيين حقيقية للمتميزين.', image: '/benefit-employment.png'},{icon: Award, title: 'شهادة خبرة معتمدة', text: 'وثيقة موثقة تثبت ممارستك الفعلية وتدعم سيرتك الذاتية.', image: '/benefit-certificate.png'}].map((item) => {const Icon = item.icon; return <article key={item.title} className="group overflow-hidden rounded-2xl border border-[#42B0D8]/40 bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#42B0D8] hover:shadow-lg"><div className="relative h-32 overflow-hidden"><img src={item.image} alt={item.title} className="size-full object-cover transition duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#102c3e]/75 via-[#102c3e]/15 to-transparent" /><span className="absolute right-4 top-4 grid size-11 place-items-center rounded-xl bg-white/90 text-[#42B0D8] shadow-sm"><Icon className="size-5" /></span><h3 className="absolute inset-x-4 bottom-3 text-lg font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,.85)]">{item.title}</h3></div><p className="p-5 text-base font-bold leading-8 text-[#1B2B65]">{item.text}</p></article>})}</div></section>
 
-      <section id="contact" className="bg-[#1B2B65] px-5 py-20 text-white lg:px-10"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-center"><div><p className="mb-3 text-sm font-bold text-[#42B0D8]">خطوتك الأولى تبدأ هنا</p><h2 className="text-4xl font-bold leading-tight md:text-5xl">سجّل اهتمامك<br />وابدأ رحلتك</h2><p className="mt-5 max-w-md leading-8 text-white/65">اترك بياناتك وسيتواصل معك فريقنا لمساعدتك في اختيار الدبلومة المناسبة.</p><div className="mt-8 flex flex-col gap-4 text-sm text-white/75"><a href="tel:01111165368" className="flex items-center gap-3 transition hover:text-white"><Phone className="size-4 text-[#42B0D8]" /> 01111165368</a><span className="flex items-center gap-3"><Mail className="size-4 text-[#42B0D8]" /> info@khatwaaa.com</span></div></div><form onSubmit={(event) => { event.preventDefault(); setSubmitted(true) }} className="rounded-3xl bg-white p-7 text-[#123d50] shadow-2xl md:p-9">{submitted ? <div className="flex min-h-[330px] flex-col items-center justify-center text-center"><span className="grid size-16 place-items-center rounded-full bg-[#e9f4f2] text-[#42B0D8]"><Check className="size-8" /></span><h3 className="mt-5 text-2xl font-bold">تم استلام بياناتك</h3><p className="mt-2 text-[#6c7e89]">سيتواصل معك فريق أكاديمية خطوة قريباً.</p><button type="button" onClick={() => setSubmitted(false)} className="mt-6 text-sm font-bold text-[#42B0D8]">إرسال تسجيل آخر</button></div> : <><div className="mb-7 flex items-center justify-between"><div><h3 className="text-2xl font-bold">سجّل معنا</h3><p className="mt-1 text-sm text-[#6c7e89]">املأ البيانات وسنتواصل معك</p></div><span className="grid size-11 place-items-center rounded-xl bg-[#f8f1df] text-[#b18536]"><Star className="size-5" /></span></div><div className="grid gap-4 sm:grid-cols-2"><label className="grid gap-2 text-sm font-bold">الاسم بالكامل<input required name="name" className="rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none transition focus:border-[#42B0D8]" placeholder="اكتب اس��ك" /></label><label className="grid gap-2 text-sm font-bold">رقم الهاتف<input required name="phone" type="tel" className="rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none transition focus:border-[#42B0D8]" placeholder="01xxxxxxxxx" /></label></div><label className="mt-4 grid gap-2 text-sm font-bold">اختر الدبلومة<select name="diploma" className="rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none focus:border-[#42B0D8]"><option>اختر الدبلومة المناسبة</option>{diplomas.map((d) => <option key={d.title}>{d.title}</option>)}</select></label><label className="mt-4 grid gap-2 text-sm font-bold">ملاحظات (اختياري)<textarea name="notes" rows={3} className="resize-none rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none focus:border-[#42B0D8]" placeholder="هل لديك أي استفسار؟" /></label><button className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3.5 font-bold text-white transition hover:bg-[#259d66]" type="submit"><MessageCircle className="size-5" /> تواصل معنا عبر الواتساب</button></>}</form></div></section>
+      <section id="contact" className="bg-[#1B2B65] px-5 py-20 text-white lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+          <div>
+            <p className="mb-3 text-sm font-bold text-[#42B0D8]">خطوتك الأولى تبدأ هنا</p>
+            <h2 className="text-4xl font-bold leading-tight md:text-5xl">سجّل اهتمامك<br />وابدأ رحلتك</h2>
+            <p className="mt-5 max-w-md leading-8 text-white/65">اترك بياناتك وسيتواصل معك فريقنا لمساعدتك في اختيار الدبلومة المناسبة.</p>
+            <div className="mt-8 flex flex-col gap-4 text-sm text-white/75">
+              <a href="tel:01111165368" className="flex items-center gap-3 transition hover:text-white"><Phone className="size-4 text-[#42B0D8]" /> 01111165368</a>
+              <span className="flex items-center gap-3"><Mail className="size-4 text-[#42B0D8]" /> info@khatwaaa.com</span>
+            </div>
+          </div>
+          <form 
+            onSubmit={(event) => { 
+              event.preventDefault(); 
+              const formData = new FormData(event.currentTarget);
+              const name = formData.get('name') as string;
+              const phone = formData.get('phone') as string;
+              const diploma = formData.get('diploma') as string;
+              const notes = formData.get('notes') as string;
+
+              const whatsappMessage = `مرحباً، أود التسجيل في أكاديمية خطوة:%0A- الاسم: ${name}%0A- الهاتف: ${phone}%0A- الدبلومة: ${diploma}%0A- ملاحظات: ${notes || 'لا يوجد'}`;
+              
+              window.open(`https://wa.me/201111165368?text=${whatsappMessage}`, '_blank');
+              setSubmitted(true); 
+            }} 
+            className="rounded-3xl bg-white p-7 text-[#123d50] shadow-2xl md:p-9"
+          >
+            {submitted ? (
+              <div className="flex min-h-[330px] flex-col items-center justify-center text-center">
+                <span className="grid size-16 place-items-center rounded-full bg-[#e9f4f2] text-[#42B0D8]">
+                  <Check className="size-8" />
+                </span>
+                <h3 className="mt-5 text-2xl font-bold">تم تجهيز طلبك بنجاح</h3>
+                <p className="mt-2 text-[#6c7e89]">جاري تحويلك إلى الواتساب لإتمام التسجيل مع الفريق.</p>
+                <button type="button" onClick={() => setSubmitted(false)} className="mt-6 text-sm font-bold text-[#42B0D8]">إرسال تسجيل آخر</button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-7 flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold">سجّل معنا</h3>
+                    <p className="mt-1 text-sm text-[#6c7e89]">املأ البيانات وسنتواصل معك</p>
+                  </div>
+                  <span className="grid size-11 place-items-center rounded-xl bg-[#f8f1df] text-[#b18536]">
+                    <Star className="size-5" />
+                  </span>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="grid gap-2 text-sm font-bold">
+                    الاسم بالكامل
+                    <input required name="name" className="rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none transition focus:border-[#42B0D8]" placeholder="اكتب اسمك الكامل" />
+                  </label>
+                  <label className="grid gap-2 text-sm font-bold">
+                    رقم الهاتف
+                    <input required name="phone" type="tel" className="rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none transition focus:border-[#42B0D8]" placeholder="01xxxxxxxxx" />
+                  </label>
+                </div>
+                <label className="mt-4 grid gap-2 text-sm font-bold">
+                  اختر الدبلومة
+                  <select name="diploma" className="rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none focus:border-[#42B0D8]">
+                    <option>اختر الدبلومة المناسبة</option>
+                    {diplomas.map((d) => <option key={d.title}>{d.title}</option>)}
+                  </select>
+                </label>
+                <label className="mt-4 grid gap-2 text-sm font-bold">
+                  ملاحظات (اختياري)
+                  <textarea name="notes" rows={3} className="resize-none rounded-xl border border-[#dbe7e5] bg-[#F8FAFC] px-4 py-3 font-normal outline-none focus:border-[#42B0D8]" placeholder="هل لديك أي استفسار؟" />
+                </label>
+                <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3.5 font-bold text-white transition hover:bg-[#259d66]" type="submit">
+                  <MessageCircle className="size-5" /> تواصل معنا عبر الواتساب
+                </button>
+              </>
+            )}
+          </form>
+        </div>
+      </section>
 
       <a href="https://wa.me/201111165368?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%AE%D8%B7%D9%88%D8%A9%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AF%D8%A8%D9%84%D9%88%D9%85%D8%A7%D8%AA" aria-label="تواصل عبر الواتساب" className="fixed bottom-5 left-5 z-30 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-[#1ebe5d]"><MessageCircle className="size-5" /> تواصل عبر الواتساب</a>
 
