@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@keyframes khatwa-hero-pan {
+  0%, 100% { transform: scale(1.03) translate3d(0, 0, 0); }
+  50% { transform: scale(1.08) translate3d(-1%, -0.5%, 0); }
+}
+
+.hero-pan {
+  animation: khatwa-hero-pan 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pan { animation: none; }
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * .6);
+  --radius-md: calc(var(--radius) * .8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.98 0.006 170);
+  --foreground: oklch(0.24 0.04 220);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.04 220);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.04 220);
+  --primary: oklch(0.29 0.07 220);
+  --primary-foreground: oklch(0.98 0.006 170);
+  --secondary: oklch(0.93 0.04 170);
+  --secondary-foreground: oklch(0.29 0.07 220);
+  --muted: oklch(0.93 0.04 170);
+  --muted-foreground: oklch(0.5 0.04 220);
+  --accent: oklch(0.9 0.08 170);
+  --accent-foreground: oklch(0.29 0.07 220);
+  --border: oklch(0.88 0.03 170);
+  --input: oklch(0.88 0.03 170);
+  --ring: oklch(0.62 0.12 170);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply text-foreground antialiased; background: #eaf7fb; font-family: var(--font-cairo), Cairo, Arial, Tahoma, sans-serif; font-weight: 700; }
+}
